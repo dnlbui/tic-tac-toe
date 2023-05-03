@@ -13,16 +13,19 @@ socket.on('connect', () => {
 });
 
 socket.on('message', (message) => {
-  console.log(message);
+  console.log('\n'+message);
+  process.stdout.write('> '); // Add a new line and the prompt
 });
 
 socket.on('gamestart', (player) => {
   console.log(`Game started. You are the ${player} player.`);
+  process.stdout.write('\n> '); // Add a new line and the prompt
 });
 
 socket.on('board', (board) => {
   const formattedBoard = board.map(row => row.map(cell => cell === ' ' ? '.' : cell).join('')).join('\n');
   console.log('\n' + formattedBoard + '\n');
+
 });
 
 socket.on('gameover', (data) => {
@@ -40,7 +43,7 @@ socket.on('gameover', (data) => {
 });
 
 // Start the input loop
-readcommand.loop({ ps1: '>' }, (err, args, str, next) => {
+readcommand.loop((err, args, str, next) => {
   if (err) {
     console.error('Error reading command:', err);
     return;
