@@ -10,7 +10,6 @@ const io = socketIO(server);
 let player1Socket;
 let player2Socket;
 
-
 io.on('connection', (socket) => {
   console.log(`A player connected: ${socket.id}`);
 
@@ -20,8 +19,7 @@ io.on('connection', (socket) => {
     player2Socket = socket;
     player1Socket.emit('message', 'Game started. You are the first player.');
     player2Socket.emit('message', 'Game started. You are the second player.');
-    player1Socket.emit('board', [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]);
-    player2Socket.emit('board', [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]);
+    socket.broadcast.emit('board', [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]);
     player1Socket.emit('message', `It's your turn. Make a move!`);
     player2Socket.emit('message', `Waiting for the first player to make a move...`);  
   } else {
