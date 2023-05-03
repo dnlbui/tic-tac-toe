@@ -9,7 +9,8 @@ socket.on('disconnect', () => {
 });
 
 socket.on('connect', () => {
-  console.log(`connected to ${SERVER_IP} ${SERVER_PORT}`);
+  console.log(`\nconnected to ${SERVER_IP} ${SERVER_PORT}`);
+  process.stdout.write('\n> '); // Add a new line and the prompt
 });
 
 socket.on('message', (message) => {
