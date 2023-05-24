@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/server/server.js",
+      "args": ["5050"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Client 1",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/client/client.js",
+      "args": ["127.0.0.1", "5050"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Client 2",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/client/client.js",
+      "args": ["127.0.0.1", "5050"],
+      "console": "integratedTerminal"
+    }
+  ]
+}
